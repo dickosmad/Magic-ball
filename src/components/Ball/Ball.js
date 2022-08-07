@@ -2,17 +2,21 @@ import "./Ball.css";
 
 import React from "react";
 
-export default class Ball extends React.Component {
-  state = {
-    color: "red",
-  };
+export default function Ball({
+  onChangingToSquare,
+  onFlashing,
+  onRotating,
+  onSeeTrough,
+}) {
+  let ballClasses = "ball";
+  if (onChangingToSquare) ballClasses += " " + onChangingToSquare;
+  if (onFlashing) ballClasses += " " + onFlashing;
+  if (onRotating) ballClasses += " " + onRotating;
+  if (onSeeTrough) ballClasses += " " + onSeeTrough;
 
-  render() {
-    const { color } = this.state;
-    return (
-      <div className="ball rotating flashing">
-        <p>henlo</p>
-      </div>
-    );
-  }
+  return (
+    <div className={ballClasses}>
+      <p>henlo</p>
+    </div>
+  );
 }

@@ -14,17 +14,25 @@
 .ball p{
     font-size:1.5em;
 }
+
 .square{
     width:15rem;
     height:15rem;
     border-radius: 0 !important;
+}
 
-}
 .flashing {
-    animation: flash-animation 2s linear  infinite;
+    animation: flash-animation 1s linear  infinite;
 }
+
 .see-through{
     animation: see-through 2s linear infinite;  
+}
+
+.rotating{
+    animation: rotating 2s linear  infinite  ;
+
+    
 }
 
 @keyframes flash-animation {
@@ -36,11 +44,7 @@
     }
 }
 
-.rotating{
-    animation: rotating 2s linear  infinite  ;
 
-    
-}
 @keyframes rotating {
     
      0% {  transform : rotate(-360deg)}

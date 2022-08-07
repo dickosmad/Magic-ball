@@ -12,21 +12,31 @@ export default class App extends Component {
   handleChangeFlashing = () => {
     this.setState({ ...this.state, isFlashing: !isFlashing });
   };
-  handleChangeSquare = () => {
+  handleChangeToSquare = () => {
     this.setState({ ...this.state, isSquared: !isFlashing });
   };
-  handleChangeRotating = () => {
+  handleChangeOnRotating = () => {
     this.setState({ ...this.state, isRotating: !isFlashing });
   };
-  handleChangeSeeTrough = () => {
+  handleChangeOnSeeTrough = () => {
     this.setState({ ...this.state, isSeeThrough: !isFlashing });
   };
   render() {
     return (
       <div className="container">
         <h1>A Magic Ball</h1>
-        <Ball onFlashChanging={handleChangeFlashing} />
-        <Checkboxes />
+        <Ball
+          onChangingToSquare={this.state.isSquared}
+          onFlashing={this.state.isFlashing}
+          onRotating={this.state.isRotating}
+          onSeeTrough={this.state.isSeeThrough}
+        />
+        <Checkboxes
+          onChangingToSquare={this.handleChangeToSquare}
+          onFlashing={this.handleChangeFlashing}
+          onRotating={this.handleChangeOnRotating}
+          onSeeTrough={this.handleChangeOnSeeTrough}
+        />
       </div>
     );
   }

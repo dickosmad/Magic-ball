@@ -1,0 +1,62 @@
+.ball{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    background-color:blue;
+    color:white;
+    width:15rem;
+    height:15rem;
+    margin:40px;
+    border-radius:100%;
+    transition: all 0.2s;
+}
+
+.ball p{
+    font-size:1.5em;
+}
+.square{
+    width:15rem;
+    height:15rem;
+    border-radius: 0 !important;
+
+}
+.flashing {
+    animation: flash-animation 2s linear  infinite;
+}
+.see-through{
+    animation: see-through 2s linear infinite;  
+}
+
+@keyframes flash-animation {
+    from{
+        background:blue;
+    }
+    to{
+        background : red;
+    }
+}
+
+.rotating{
+    animation: rotating 2s linear  infinite  ;
+
+    
+}
+@keyframes rotating {
+    
+     0% {  transform : rotate(-360deg)}
+    
+}
+@keyframes see-through {
+    0%{
+        opacity :.3
+    }
+    50%{
+        opacity :.5
+    }
+    80%{
+        opacity :.7
+    }
+    100%{
+        opacity :.95
+    }
+}

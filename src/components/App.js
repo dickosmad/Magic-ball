@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Ball from "./Ball";
 import Checkboxes from "./Checkboxes";
-import Checkbox from "./Checkboxes/Checkbox";
 
 export default class App extends Component {
   state = {
@@ -11,7 +10,7 @@ export default class App extends Component {
     isSeeThrough: false,
   };
   handleChangeFlashing = () => {
-    this.setState({ ...this.state, isFlashing: !this.state.isFlashing });
+    this.setState({ isFlashing: !this.state.isFlashing });
   };
   handleChangeToSquare = () => {
     this.setState({ ...this.state, isSquared: !this.state.isSquared });
@@ -37,6 +36,10 @@ export default class App extends Component {
           onFlashing={this.handleChangeFlashing}
           onRotating={this.handleChangeOnRotating}
           onSeeTrough={this.handleChangeOnSeeTrough}
+          isSquared={this.state.isSquared}
+          isFlashing={this.state.isFlashing}
+          isRotating={this.state.isRotating}
+          isSeeThrough={this.state.isSeeThrough}
         />
       </div>
     );

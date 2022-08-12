@@ -4,35 +4,24 @@ import React from "react";
 
 import Checkbox from "./Checkbox";
 
-const LABELS = ["Flashing", "Rotating", "See-through", "Square"];
+//const LABELS = ["Flashing", "Rotating", "See-through", "Square"];
 
-export default function Checkboxes({
-  onChangingToSquare,
-  onFlashing,
-  onRotating,
-  onSeeTrough,
-  isSquared,
-  isFlashing,
-  isRotating,
-  isSeeThrough,
-}) {
-  //console.log("Onflashing", onFlashing());
+export default function Checkboxes({ checkboxes, onChecked }) {
+  console.log("Onflashing", checkboxes);
   return (
     <div className="checkboxes-container">
-      {LABELS.map((label) => (
-        <Checkbox
-          key={label}
-          label={label}
-          onChangingToSquare={onChangingToSquare}
-          onFlashing={onFlashing}
-          onRotating={onRotating}
-          onSeeTrough={onSeeTrough}
-          isSquared={isSquared}
-          isFlashing={isFlashing}
-          isRotating={isRotating}
-          isSeeThrough={isSeeThrough}
-        />
-      ))}
+      {checkboxes.map(({ id, label, isChecked }) => {
+        console.log("Checked", id, label, isChecked);
+        return (
+          <Checkbox
+            key={id}
+            label={label}
+            isChecked={isChecked}
+            onChecked={onChecked}
+            id={id}
+          />
+        );
+      })}
     </div>
   );
 }

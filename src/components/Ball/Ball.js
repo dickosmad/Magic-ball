@@ -2,20 +2,16 @@ import "./Ball.css";
 
 import React from "react";
 
-export default function Ball({
-  onChangingToSquare,
-  onFlashing,
-  onRotating,
-  onSeeTrough,
-}) {
-  let ballClasses = "ball";
-  if (onChangingToSquare) ballClasses += " " + onChangingToSquare;
-  if (onFlashing) ballClasses += " " + onFlashing;
-  if (onRotating) ballClasses += " " + onRotating;
-  if (onSeeTrough) ballClasses += " " + onSeeTrough;
+export default function Ball({ ballState }) {
+  console.log(ballState);
+  let classeNames = ["ball"];
+  ballState?.forEach(function (item) {
+    console.log(item.isChecked);
+    if (item.isChecked) classeNames.push(item.label.toLowerCase());
+  });
 
   return (
-    <div className={ballClasses}>
+    <div className={classeNames.join(" ")}>
       <p>henlo</p>
     </div>
   );

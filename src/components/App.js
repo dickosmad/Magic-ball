@@ -4,43 +4,34 @@ import Checkboxes from "./Checkboxes";
 
 export default class App extends Component {
   state = {
-    isFlashing: false,
-    isSquared: false,
-    isRotating: false,
-    isSeeThrough: false,
+    ballState: [
+      {
+        id: 1,
+        label: "Flashing",
+        isChecked: false,
+      },
+      { id: 2, label: "Rotating", isChecked: false },
+      { id: 3, label: "See-through", isChecked: false },
+      { id: 4, label: "Square", isChecked: false },
+    ],
   };
-  handleChangeFlashing = () => {
-    this.setState({ isFlashing: !this.state.isFlashing });
+  handleChange = (id) => {
+    const { ballState } = this.state;
+    const newState = [...ballState].map((checkbox) => {
+      checkbox.id === id
+        ? { ...checkbox, isChecked: !this.state.isChecked }
+        : checkbox;
+    });
+    this.setState({ ballState: newState });
   };
-  handleChangeToSquare = () => {
-    this.setState({ ...this.state, isSquared: !this.state.isSquared });
-  };
-  handleChangeOnRotating = () => {
-    this.setState({ ...this.state, isRotating: !this.state.isRotating });
-  };
-  handleChangeOnSeeTrough = () => {
-    this.setState({ ...this.state, isSeeThrough: !this.state.isSeeThrough });
-  };
+
   render() {
+    const { ballState } = this.state;
     return (
       <div className="container">
         <h1>A Magic Ball</h1>
-        <Ball
-          onChangingToSquare={this.state.isSquared}
-          onFlashing={this.state.isFlashing}
-          onRotating={this.state.isRotating}
-          onSeeTrough={this.state.isSeeThrough}
-        />
-        <Checkboxes
-          onChangingToSquare={this.handleChangeToSquare}
-          onFlashing={this.handleChangeFlashing}
-          onRotating={this.handleChangeOnRotating}
-          onSeeTrough={this.handleChangeOnSeeTrough}
-          isSquared={this.state.isSquared}
-          isFlashing={this.state.isFlashing}
-          isRotating={this.state.isRotating}
-          isSeeThrough={this.state.isSeeThrough}
-        />
+        <Ball ballState={ballState} />
+        <Checkboxes checkboxes={ballState} onChecked={this.handleChange} />
       </div>
     );
   }

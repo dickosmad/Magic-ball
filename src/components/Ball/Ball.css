@@ -21,9 +21,9 @@
     border-radius: 0 !important;
 }
 
-.flashing {
-    animation: flash-animation 1s linear  infinite;
-}
+/* .flashing {
+    animation: flashing 1s linear  infinite;
+} */
 
 .see-through{
     animation: see-through 2s linear infinite;  
@@ -35,7 +35,7 @@
     
 }
 
-@keyframes flash-animation {
+@keyframes flashing {
     from{
         background:blue;
     }

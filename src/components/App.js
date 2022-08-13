@@ -17,11 +17,11 @@ export default class App extends Component {
   };
   handleChange = (id) => {
     const { ballState } = this.state;
-    const newState = [...ballState].map((checkbox) => {
+    const newState = [...ballState].map((checkbox) =>
       checkbox.id === id
-        ? { ...checkbox, isChecked: !this.state.isChecked }
-        : checkbox;
-    });
+        ? { ...checkbox, isChecked: !checkbox.isChecked }
+        : checkbox
+    );
     this.setState({ ballState: newState });
   };
 
